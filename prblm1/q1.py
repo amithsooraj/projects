@@ -31,15 +31,12 @@ def sort_dict(data):
                key=lambda item: dt.strptime(item[1], '%d-%m-%Y'),
                reverse=True),
     )
-    new_data = {}
-    for key, value in data.items():
-        new_data['name'] = key
-        new_data['age'] = dt.strptime(value, '%d-%m-%Y')
     return sorted_data
 
 
 if __name__ == '__main__':
     data = parse_file('ag1.txt')
-    print(data, '\n\n')
     sorted_data = sort_dict(data)
-    print(sorted_data, '\n\n')
+    names = list(sorted_data.keys())
+    youngest = names[0]
+    print(youngest)
